@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.MainPage"
+             Shell.NavBarIsVisible="False"
+             Title="Mainpage"
+             Shell.BackgroundColor="#FFF8EA"
+             Shell.TitleColor="Black"
+             Background="Black">
+
+
+    <ContentPage.Content>
+        <ScrollView>
+        <VerticalStackLayout Spacing="10" Padding="20">
+
+            <!-- Section 1: Vincent van Gogh Profile -->
+                <Frame BackgroundColor="Transparent" Padding="10" CornerRadius="10" BorderColor="Transparent">
+                    <VerticalStackLayout>
+                        <Image Source="download.jpg" Aspect="AspectFill" HeightRequest="120" WidthRequest="120" HorizontalOptions="Center" >
+                            <Image.Clip>
+                                <EllipseGeometry Center="60,60" RadiusX="60" RadiusY="60"/>
+                            </Image.Clip>
+                        </Image>
+                        <Label Text="Vincent van Gogh" FontSize="24" FontAttributes="Bold" HorizontalOptions="Center" TextColor="White"/>
+                        <Label Text="Dutch, 1853—1890" FontAttributes="Italic" HorizontalOptions="Center" TextColor="White"/>
+                        <Label x:Name="summaryLabel" 
+                               Text="Was a Dutch Post-Impressionist painter who is among the most famous and influential..."
+                               HorizontalOptions="Center"
+                               MaxLines="2"
+                               TextColor="White"/>
+                        <Label x:Name="readMoreLabel"
+                               Text="Read More"
+                               TextColor="Orange"
+                               FontAttributes="None"
+                               TextDecorations="Underline"
+                               HorizontalOptions="End"
+                               VerticalOptions="Center"
+                               BackgroundColor="Transparent">           
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnReadMoreTapped" NumberOfTapsRequired="1" />
+                            </Label.GestureRecognizers>
+                        </Label>
+                        <!-- This Label will initially be hidden and will show the full text when 'Read More' is clicked -->
+                        <Label x:Name="fullTextLabel"
+                               Text="Was a Dutch Post-Impressionist painter who is among the most famous and influential figures in the history of Western art."
+                               IsVisible="False"
+                               HorizontalOptions="Center"
+                               TextColor="White"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+
+                <!-- Section 2: Records and Statistics -->
+            <Frame BackgroundColor="Transparent" Padding="10" CornerRadius="10" Margin="0,10" BorderColor="Transparent">
+                <Grid ColumnSpacing="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <VerticalStackLayout Grid.Column="0" HorizontalOptions="Center">
+                            <Label Text="$7.5m" FontAttributes="Bold" TextColor="White"/>
+                            <Label Text="Record" Opacity="0.6" TextColor="White"/>
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Grid.Column="1" HorizontalOptions="Center">
+                            <Label Text="$3.5m" FontAttributes="Bold" TextColor="White"/>
+                            <Label Text="Average" Opacity="0.6" TextColor="White"/>
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Grid.Column="2" HorizontalOptions="Center">
+                            <Label Text="+598%" FontAttributes="Bold" TextColor="White"/>
+                            <Label Text="General" Opacity="0.6" TextColor="White"/>
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Grid.Column="3" HorizontalOptions="Center">
+                            <Label Text="12" FontAttributes="Bold" TextColor="White"/>
+                            <Label Text="Items" Opacity="0.6" TextColor="White"/>
+                    </VerticalStackLayout>
+                </Grid>
+            </Frame>
+
+            <!-- Section 3: Other Works of Vincent van Gogh -->
+            <Frame BackgroundColor="Transparent" Padding="10" CornerRadius="10" Margin="0,10" BorderColor="Transparent">
+                <VerticalStackLayout>
+                        <Label Text="Other Van Gogh Works" FontSize="18" FontAttributes="Bold" HorizontalOptions="Center"  TextColor="White" />
+
+                    <!-- List of works -->
+                        <VerticalStackLayout Spacing="20">
+                            <!-- Work 1 -->
+                            <HorizontalStackLayout Spacing="12">
+                                <Image Source="pinkpeach.jpg" Aspect="AspectFill" WidthRequest="100" HeightRequest="100"/>
+                                <VerticalStackLayout>
+                                    <Label Text="Peach Tree in Blossom" FontAttributes="Bold" TextColor="White"/>
+                                    <Label Text="$950,000" TextColor="White"/>
+                                </VerticalStackLayout>
+                            </HorizontalStackLayout>
+                            <!-- Work 2 -->
+                            <HorizontalStackLayout Spacing="10">
+                                <Image Source="cafe.jpg" Aspect="AspectFill" WidthRequest="100" HeightRequest="100"/>
+                                <VerticalStackLayout>
+                                    <Label Text="Cafe Terrace at Night" FontAttributes="Bold" TextColor="White"/>
+                                    <Label Text="$1,920,000" TextColor="White"/>
+                                </VerticalStackLayout>
+                            </HorizontalStackLayout>
+                        </VerticalStackLayout>
+                    </VerticalStackLayout>
+            </Frame>
+        </VerticalStackLayout>
+    </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
